@@ -10,7 +10,13 @@
     "prod": "vite preview --port 8080 --host 0.0.0.0"
   },
   "dependencies": {
-    "vue": "^3.5.17"
+    "axios": "^1.10.0",
+    "date-fns": "^4.1.0",
+    "js-cookie": "^3.0.5",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "vue-screen-size": "^2.1.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",
