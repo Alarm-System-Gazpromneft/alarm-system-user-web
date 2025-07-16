@@ -47,7 +47,7 @@ export default {
 .loginform {
 	border: None;
 	box-shadow: 0 10px 12px rgba(0,0,0,0.05);
-	background-color: rgba(169, 204, 241, 0.182);
+	background-color: rgba(228, 235, 243, 0.144);
 	/* border: 5px solid #3b3b43cd; */
 	border-radius: 30px;
 	display: block;

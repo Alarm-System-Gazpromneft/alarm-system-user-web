@@ -2,26 +2,26 @@
   <div v-show="(!this.$store.state.login.loading)">
     <div v-show="(this.$store.state.login.id===null&&this.$store.state.login.uuid==null)">
       <img src="../assets/logo2.png" class="mycenter" style="width: 300px;">
-      <my-button class='mycenter' style="margin-top: 20px;background-color: rgba(169, 204, 241, 0.4);border-radius: 8px; z-index: 1000; height: 40px;" @click="$router.push('/login')">Авторизация</my-button>
+      <my-button class='mycenter' style="margin-top: 20px;background-color: rgba(255, 255, 255, 0.521);border-radius: 8px; z-index: 1000; height: 40px;" @click="$router.push('/login')">Авторизация</my-button>
     </div>
 
     <div v-show="(this.$store.state.login.id!==null&&this.$store.state.login.uuid!==null&& !this.$store.state.login.loading)">
        <div class="container" style="padding-bottom: 15px;">
-        <my-button @click="personalAccount" style="display: inline-flex; align-items: center;background-color: rgba(169, 204, 241, 0.4);border-radius: 8px;">
+        <my-button @click="personalAccount" style="display: inline-flex; align-items: center;background-color: white;border-radius: 8px;">
           <img src="../assets/lk3.png" style="height: 35px;">
           <div style="font-size: 15px; border-radius: 8px;">Личный кабинет</div>
         </my-button>
         <div class="name" style="color:rgb(22, 7, 110)">{{ `${this.$store.state.login.name} ${this.$store.state.login.patronymic} ${this.$store.state.login.surname} ` }}</div>
-        <my-button @click="logOut" style="display: inline-flex; align-items: center; margin-left: auto;background-color: rgba(169, 204, 241, 0.4);border-radius: 8px;">
-          <img src="../assets/exit.png" style="height: 35px;">
-          <div style="font-size: 15px;">Выход</div>
+        <my-button @click="logOut" style="display: inline-flex; align-items: center; margin-left: auto;background-color: rgb(37, 99, 235);border-radius: 8px;">
+          <img src="../assets/exit.png" style="height: 35px; margin-right: 7px;">
+          <div style="font-size: 15px; color:white">Выход</div>
         </my-button>
       </div>
       <div style="margin-bottom: 40px;">
-        <my-select style="border: None; color: rgb(22, 7, 110);background-color: rgba(169, 204, 241, 0.4);border-radius: 8px; height: 40px; width: 300px; padding-left: 10px;" v-model="selectedSort" :options="sortOptions" :string="string1" v-show="posts.length>0"></my-select>
-        <my-input style='color:rgb(22, 7, 110);background-color: rgba(169, 204, 241, 0.4);border-radius: 8px; margin-left: 15px; height: 35px; width: 300px; padding-left: 10px; border:None;' v-focus v-model="searchQuery" placeholder="Поиск..." v-show="posts.length>0">
+        <my-select style="border: None; color: rgb(22, 7, 110);background-color: white;border-radius: 8px; height: 40px; width: 300px; padding-left: 10px;" v-model="selectedSort" :options="sortOptions" :string="string1" v-show="posts.length>0"></my-select>
+        <my-input style='color:rgb(22, 7, 110);background-color: white;border-radius: 8px; margin-left: 15px; height: 35px; width: 300px; padding-left: 10px; border:None;' v-focus v-model="searchQuery" placeholder="Поиск..." v-show="posts.length>0">
 		    </my-input>
-        <my-button @click="fetchPosts" style='background-color: rgba(169, 204, 241, 0.4);border-radius: 8px; right: 20px; z-index: 1000; height: 40px; margin-left: 15px; margin-top: 4px;'>Обновить список</my-button>
+        <my-button @click="fetchPosts" style='background-color: white;border-radius: 8px; right: 20px; z-index: 1000; height: 40px; margin-left: 15px; margin-top: 4px;'>Обновить список</my-button>
       </div>
         <post-list :posts= "sortedAndSearchedPosts" :isLoading="isPostLoading"></post-list>
     </div>

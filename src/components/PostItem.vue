@@ -5,10 +5,11 @@
 			<span v-show='post.priority=="high"' class="priority-label priority-high">{{ post.priority }}</span>
 			<span v-show='post.priority=="low"' class="priority-label priority-low">{{ post.priority }}</span>
 			<span class="problem-id" style="margin-left: 15px;display: inline-block;">ID: {{ post.id }}</span>
-		</div>
-		<h3 class="problem-title">{{ post.name }}</h3>
-		<p class="problem-time">{{ formattedDate }}</p>
-		<button class="details-button" @click="showDialog">Подробнее</button>
+		
+      <h3 class="problem-title">{{ post.name }}</h3>
+      <p class="problem-time" style="display: inline;">{{ formattedDate }}</p>
+      <button class="details-button" style='display: inline;float: right;' @click="showDialog">Подробнее</button>
+  </div>
 	</div>
 
 		<my-dialog v-model:show="dialogVisible">
