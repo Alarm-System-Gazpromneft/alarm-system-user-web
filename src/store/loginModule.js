@@ -6,6 +6,7 @@ export default {
     id: null,
     uuid: null,
     loading: false,
+    pin_code: null,
     error: null,
     isAuth: false,
     name: '',
@@ -13,6 +14,10 @@ export default {
     patronymic: ''
   }),
   mutations: {
+    SET_PIN_CODE(state,pin_code){
+      state.pin_code=pin_code
+      localStorage.setItem('pin_code',pin_code)
+    },
     SET_NAME(state,name){
       state.name=name
       localStorage.setItem('name',name)
@@ -54,6 +59,7 @@ export default {
       localStorage.removeItem('patronymic');
       localStorage.removeItem('id');
       localStorage.removeItem('uuid');
+      localStorage.removeItem('pin_code')
     },
     INIT_AUTH(state) {
       // Инициализация из storage при загрузке приложения
@@ -62,9 +68,11 @@ export default {
       const name=localStorage.getItem('name');
       const surname=localStorage.getItem('surname');
       const patronymic=localStorage.getItem('patronymic');
+      const pin_code=localStorage.getItem('pin_code')
       state.name=name;
       state.surname=surname;
       state.patronymic=patronymic;
+      state.pin_code=pin_code;
       if (uuid) {
         state.uuid = uuid;
       }

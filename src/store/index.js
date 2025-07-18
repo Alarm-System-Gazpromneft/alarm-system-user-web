@@ -1,6 +1,6 @@
 import loginModule from './loginModule.js'
 import { createStore } from 'vuex';
-
+import sheduleModule from './sheduleModule.js'
 
 export default createStore({
   state: () => ({         //$store.state. ...
@@ -14,7 +14,8 @@ export default createStore({
 
   },
   modules:{
-    login: loginModule
+    login: loginModule,
+    sheduleMod: sheduleModule
   }
 })
 //store.commit('login/INIT_AUTH');

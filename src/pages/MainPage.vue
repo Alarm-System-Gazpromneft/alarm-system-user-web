@@ -48,6 +48,7 @@ export default {
 			},
       logOut(){
         this.$store.commit('login/CLEAR_AUTH')
+        this.$store.commit('sheduleMod/CLEAR_SHEDULE')
       },
       personalAccount(){
         this.$router.push('/account')
@@ -78,6 +79,7 @@ export default {
         this.$store.commit('login/SET_NAME',response.data.name)
         this.$store.commit('login/SET_SURNAME',response.data.surname)
         this.$store.commit('login/SET_PATRONYMIC',response.data.patronymic)
+        this.$store.commit('login/SET_PIN_CODE',response.data.pin_code)
         console.log(this.$store.state.login.name)
       }
       console.log(response)

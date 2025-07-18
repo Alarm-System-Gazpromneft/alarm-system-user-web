@@ -1,8 +1,8 @@
 <template>
     <div>
       <div v-show="(this.$store.state.login.id==null&&this.$store.state.login.uuid==null)">
-        <img src="../assets/logo2.png" class="mycenter" style="width: 300px;margin-top: 10px">
-        <my-button class='mycenter' style="margin-top: 20px;background-color: rgba(255, 255, 255, 0.521); border-radius: 4px;" @click="$router.push('/login')">Авторизация</my-button>
+        <img src="../assets/logo2.png" class="mycenter" style="width: 300px;">
+        <my-button class='mycenter' style="margin-top: 20px; background-color: rgba(255, 255, 255, 0.521); border-radius: 4px;" @click="$router.push('/login')">Авторизация</my-button>
       </div>
 
       <div v-show="(this.$store.state.login.id!=null&&this.$store.state.login.uuid!=null)">
@@ -13,18 +13,18 @@
               <div style="font-size: 15px; color:white">На главную</div>
             </my-button>
             <img src="../assets/lk3.png" class="mycenter" style="width: 100px; ">
-            <h3 style="color: rgb(45, 62, 80); margin-top: 0px;margin-bottom: 4px;" class="mycenter">{{ this.$store.state.login.name }} {{ this.$store.state.login.surname }}</h3>
+            <h3 style="color: rgb(45, 62, 80); margin-top: 0px; margin-bottom: 4px;" class="mycenter">{{ this.$store.state.login.name }} {{ this.$store.state.login.surname }}</h3>
             <h5 class="mycenter" style="color: rgb(45, 62, 80);margin-bottom: 40px; margin-top: 0px;">ID: {{ this.$store.state.login.id }}; Pin-code: {{ this.$store.state.login.pin_code }}</h5>
             <nav>
-              <button @click="$router.push('/account')" class="menu_btn" style="background-color: rgba(196, 211, 247, 0.51);border-radius: 4px;width: 100%; padding-top: 15px; padding-bottom: 10px; margin-bottom: 30px;">
-                <img src="../assets/clock.png" style="width: 35px;white-space: nowrap; margin-right: 15px;margin-left: 15px;">
-                <span style="white-space: nowrap; ">Рабочая неделя </span>
+              <button @click="$router.push('/account')" class="menu_btn" style="margin-bottom: 23px; cursor:pointer">
+                <img src="../assets/clock.png" style="width: 35px;white-space: nowrap; margin-right: 15px; margin-left: 15px;">
+                <span style="white-space: nowrap;">Рабочая неделя</span>
               </button>
-              <button @click="$router.push('/holidays')" class="menu_btn" style="cursor: pointer;">
-                <img src="../assets/odobreno.png" style="width: 35px;white-space: nowrap; margin-right: 15px; margin-left: 15px;">
-                <span style="white-space: nowrap;">Отпуска и выходные</span>
+              <button class="menu_btn" style="background-color: rgba(196, 211, 247, 0.51);border-radius: 4px;width: 100%; padding-top: 15px; padding-bottom: 10px; margin-bottom: 30px;">
+                <img src="../assets/odobreno.png" style="width: 35px;white-space: nowrap; margin-right: 15px;margin-left: 15px;">
+                <span style="white-space: nowrap; ">Отпуска и выходные </span>
               </button>
-              <button @click="$router.push('/calendar')" class="menu_btn" style="cursor: pointer;">
+              <button @click="$router.push('/calendar')"class="menu_btn" style="cursor: pointer;">
                 <img src="../assets/calendar.png" style="width: 35px;white-space: nowrap; margin-right: 15px;margin-left: 15px;">
                 <span style="white-space: nowrap;">Календарь</span>
               </button>
@@ -38,7 +38,7 @@
           </div>
 
           <div class="main-content">
-            <week-form> </week-form>
+          
           </div>
         </div>
       </div>
@@ -51,7 +51,6 @@ export default {
   methods:{
     logOut(){
         this.$store.commit('login/CLEAR_AUTH')
-        this.$store.commit('sheduleMod/CLEAR_SHEDULE')
       },
   }
 }
@@ -71,7 +70,6 @@ export default {
   color: white;
   position: fixed;
   height: 100%;
-  border-radius: 20px;
   box-shadow: 2px 0 5px rgba(244, 243, 243, 0.1);
   top: 0; 
   left: 0;
