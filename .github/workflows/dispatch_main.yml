@@ -19,4 +19,4 @@ jobs:
           event-type: submodule-user-web-pushed
           # Можно передать полезную нагрузку:
           client-payload: |
-            { "name": "${{ github.actor }}", "commit": ''' ${{ github.event.head_commit.message }}''' }
+            { "name": "${{ github.actor }}", "commit": '''${{ github.event.head_commit.message }}''' }
