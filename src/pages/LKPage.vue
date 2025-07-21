@@ -20,14 +20,6 @@
                 <img src="../assets/clock.png" style="width: 35px;white-space: nowrap; margin-right: 15px;margin-left: 15px;">
                 <span style="white-space: nowrap; ">Рабочая неделя </span>
               </button>
-              <button @click="$router.push('/holidays')" class="menu_btn" style="cursor: pointer;">
-                <img src="../assets/odobreno.png" style="width: 35px;white-space: nowrap; margin-right: 15px; margin-left: 15px;">
-                <span style="white-space: nowrap;">Отпуска и выходные</span>
-              </button>
-              <button @click="$router.push('/calendar')" class="menu_btn" style="cursor: pointer;">
-                <img src="../assets/calendar.png" style="width: 35px;white-space: nowrap; margin-right: 15px;margin-left: 15px;">
-                <span style="white-space: nowrap;">Календарь</span>
-              </button>
             </nav>
 
             <my-button class="mycenter exit-btn-container" @click="logOut" style="display: flex; align-items: center; background-color: rgb(37, 99, 235);border-radius: 8px; margin-bottom: 15px;" >

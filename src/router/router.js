@@ -1,7 +1,6 @@
 import Login from '@/pages/LoginPage.vue'; 
 import Main from '@/pages/MainPage.vue';
 import LK from '@/pages/LKPage.vue';
-import Holiday from '@/pages/HolidayPage.vue';
 import { createWebHistory, createRouter } from "vue-router"
 
 const routes=[
@@ -26,14 +25,6 @@ const routes=[
       title: 'Личный кабинет'
     }
   },
-  {
-    path: '/holidays',
-    component: Holiday,
-     meta: {
-      title: 'Нерабочие дни'
-    }
-  },
-  
 ]
 
 const router=createRouter({

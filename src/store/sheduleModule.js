@@ -1,6 +1,7 @@
 export default {
   namespaced: true,
   state: () => ({
+    holidays: [],
     shedule: [
         { 
           day: 'Пн', 
@@ -102,29 +103,15 @@ export default {
         },
       ]
   }),
-  // mutations: {
-  //   SET_SHEDULE(state, shedule) {
-  //     state.shedule = JSON.parse(JSON.stringify(shedule));
-  //     localStorage.setItem('shedule', JSON.stringify(shedule));
-  //   },
-
-  //   CLEAR_SHEDULE(state) {
-  //     state.shedule = JSON.parse(JSON.stringify(state.base));
-  //     localStorage.removeItem('shedule');
-  //     console.log(4)
-  //   },
-
-  //   INIT_SHEDULE(state) {
-  //     const shedule = localStorage.getItem('shedule');
-  //     if (shedule) {
-  //       state.shedule = JSON.parse(shedule);
-  //     }
-  //   },
-  //   ADD_BREAK(state, { dayIndex, breakItem }) {
-  //     state.shedule[dayIndex].breaks.push(breakItem);
-  // }
-  // },
   mutations: {
+    SET_HOLIDAYS(state,holidays){
+      state.holidays = holidays;
+      localStorage.setItem('holidays', JSON.stringify(holidays));
+    },
+    ADD_HOLIDAY(state,holiday,commit){
+      state.holidays.push(holiday)
+      localStorage.setItem('holidays', JSON.stringify(state.holidays))
+    },
     UPDATE_TIME(state, { dayIndex, field, value }) {
     state.shedule[dayIndex][field] = value;
   },
@@ -132,11 +119,17 @@ export default {
     UPDATE_BREAK(state, { dayIndex, breakIndex, field, value }) {
       state.shedule[dayIndex].breaks[breakIndex][field] = value;
     },
+    UPDATE_HOLIDAY(state, { index, holiday }) {
+      state.holidays.splice(index, 1, holiday);
+      localStorage.setItem('holidays', JSON.stringify(state.holidays));
+  },
     SET_SHEDULE(state, shedule) {
       state.shedule = shedule;
       localStorage.setItem('shedule', JSON.stringify(shedule));
   },
-
+  DELETE_HOLIDAY(state, index) {
+    state.holidays.splice(index, 1);
+  },
   INIT_SHEDULE(state) {
     try {
       const savedShedule = localStorage.getItem('shedule');
@@ -154,9 +147,29 @@ export default {
       } else {
         this.commit('sheduleMod/CLEAR_SHEDULE');
       }
+      const savedHolidays = localStorage.getItem('holidays');
+      if (savedHolidays) {
+        state.holidays = JSON.parse(savedHolidays);
+      }
+      // fvrgjntvvvvvvvvvvvvvnjjvnfvfvfvr
+      else{
+        state.holidays = [
+      {
+        type: 'Больничный',
+        start: '20.06.2025',
+        end: '27.06.2025'
+      },
+      {
+        type: 'Отпуск',
+        start: '29.06.2025',
+        end: '1.07.2025'
+      }
+    ];
+      }
     } catch (e) {
       console.error('Ошибка при загрузке расписания:', e);
       this.commit('sheduleMod/CLEAR_SHEDULE');
+
     }
   },
 
@@ -170,7 +183,20 @@ export default {
         end: '14:00'
       }))
     }));
+    state.holidays=[
+      {
+        type: 'Больничный',
+        start: '20.06.2025',
+        end: '27.06.2025'
+      },
+      {
+        type: 'Отпуск',
+        start: '29.06.2025',
+        end: '1.07.2025'
+      }
+    ];
     localStorage.removeItem('shedule');
+    localStorage.removeItem('holidays')
   },
 
   ADD_BREAK(state, { dayIndex, breakItem }) {

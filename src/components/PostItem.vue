@@ -115,7 +115,6 @@ export default {
   color: #6b7280;
 }
 
-/* Кнопка "Подробнее" */
 .details-button {
   margin-top: 0.5rem;
   align-self: flex-end;
